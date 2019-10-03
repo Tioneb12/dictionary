@@ -10,14 +10,24 @@ gem 'rails', '6.0.0'
 gem 'redis'
 
 gem 'autoprefixer-rails'
-gem 'font-awesome-sass', '~> 5.6.1'
+gem 'canonical-rails'
+gem 'font-awesome-sass', '~> 5.9.0'
+gem 'friendly_id', '~> 5.1.0'
+gem 'pagy'
+gem 'pg_search'
 gem 'sassc-rails'
+gem 'route_translator'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'letter_opener'
+  gem 'bullet', group: 'development'
 end
 
 group :development, :test do
