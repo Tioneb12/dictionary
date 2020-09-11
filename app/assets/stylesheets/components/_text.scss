@@ -1,0 +1,18 @@
+.txt {
+  // text-align: center;
+  &-verb {
+    color: $verbs-bg;
+  };
+  &-adverb {
+    color: $adverbs-bg;
+  };
+  &-adjective {
+    color: $adjectives-bg;
+  };
+  &-name {
+    color: $names-bg;
+  };
+  &-expression {
+    color: $expressions-bg;
+  };
+}

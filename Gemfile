@@ -8,7 +8,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '6.0.0'
 gem 'redis'
-
+gem 'faker', :require => false
 gem 'autoprefixer-rails'
 gem 'canonical-rails'
 gem 'font-awesome-sass', '~> 5.9.0'

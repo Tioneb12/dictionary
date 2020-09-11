@@ -1,2 +1,11 @@
 <h1>Words#new</h1>
 <p>Find me in app/views/words/new.html.erb</p>
+
+<%= simple_form_for @word do |f|%>
+  <%= f.input :title %>
+  <%= f.input :content, as: :text %>
+  <%= f.input :author_name %>
+  <%= f.input :author_email %>
+  <%= f.association :category %>
+  <%= f.button :submit %>
+<% end %>

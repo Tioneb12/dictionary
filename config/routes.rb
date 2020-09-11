@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
-  resources :words,
-            only: [:index, :new, :create],
-            :defaults => { :format => 'html' }
+  localized do
+    resources :words
+    resources :comments
+    resources :categories, only: [:show]
+  end
 
 end

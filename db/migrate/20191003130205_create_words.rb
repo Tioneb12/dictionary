@@ -6,7 +6,7 @@ class CreateWords < ActiveRecord::Migration[6.0]
       t.string :content
       t.string :author_name
       t.string :author_email
-      t.boolean :actived
+      t.boolean :published
 
       t.timestamps
     end

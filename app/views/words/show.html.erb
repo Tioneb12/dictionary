@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl">
+      <p><%= @word.id %></p>
+      <p><%= @word.excerpt %></p>
+      <p><%= @word.content %></p>
+      <p><%= @word.author_name %></p>
+      <p><%= @word.author_email %></p>
+      <p><%= @word.published %></p>
+      <p><%= @word.created_at %></p>
+      <p><%= @word.slug %></p>
+      <hr>
+      <% @word.comments.each do |comment| %>
+        <p><div id="comment-<%= comment.id %>"> - <%= comment.pseudo %></div></p>
+      <% end %>
+      <hr>
+      <%= simple_form_for @comment do |f| %>
+        <%= f.input :pseudo %>
+        <%= f.input :email %>
+        <%= f.input :content, as: :text %>
+        <%= f.input :word_id, as: :hidden %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

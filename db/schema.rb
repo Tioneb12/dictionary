@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_134605) do
+ActiveRecord::Schema.define(version: 2019_10_04_160243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.integer "words_count"
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "pseudo"
+    t.string "email"
+    t.string "content"
+    t.string "secret"
+    t.boolean "published", default: false
+    t.integer "word_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -45,11 +63,15 @@ ActiveRecord::Schema.define(version: 2019_10_03_134605) do
     t.string "content"
     t.string "author_name"
     t.string "author_email"
-    t.boolean "actived"
+    t.boolean "published"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
+    t.bigint "category_id"
+    t.integer "comments_count"
+    t.index ["category_id"], name: "index_words_on_category_id"
     t.index ["slug"], name: "index_words_on_slug", unique: true
   end
 
+  add_foreign_key "words", "categories"
 end

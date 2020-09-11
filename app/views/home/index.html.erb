@@ -1,1 +1,178 @@
-index page
+<ul>
+  <li><%= link_to "Liste words", words_path %></li>
+  <li><%= link_to "Liste words", new_word_path %></li>
+</ul>
+
+<h1>Last comment</h1>
+<ul>
+<% Comment.last(10).each do |comment| %>
+  <li><%= comment.pseudo %> sur <%= link_to comment.word.title, word_path(comment.word.slug) %></li>
+<% end %>
+</ul>
+
+
+<h1>Category</h1>
+<ul>
+<% @categories.each do |category| %>
+  <li><%= link_to category.name, category_path(category.slug) %></li>
+<% end %>
+</ul>
+
+<div class="container-fluid">
+  <div class="container">
+  <h2 class="txt txt-verb">Les derniers verbes :</h2>
+    <div class="row">
+      <% @words.verb.take(4).each do |word| %>
+        <div class="col-xl">
+          <div class="card bg-verb text-white mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><%= word.title %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="container text-center">
+    <%= link_to category_path(@categories.verb.first.slug), :class => "btn bg-verb btn-lg" do %>
+      <i class="fas fa-angle-double-right"></i>
+      Voir tous les verbes (<%= @categories.verb.first.words_count %>)
+      <i class="fas fa-angle-double-right"></i>
+    <% end %>
+  </div>
+</div>
+
+<div class="container-fluid word_ligth">
+  <div class="container">
+    <h2 class="text-center txt-word">Les derniers mots :</h2>
+    <div class="row">
+    <% @words.word.take(4).each do |word| %>
+      <div class="col-xl">
+        <div class="card word text-white mb-3">
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= word.title %></h5>
+          </div>
+          <div class="card-footer bg-white word_txt">
+            <p class="footer-left">
+              <span class ="author">Par <%= word.author_name %></span>
+              <span class ="votes">
+                <span class="text-success">+ 12 <i class="far fa-thumbs-up"></i></span>
+                <span class="text-danger">- 12 <i class="far fa-thumbs-down"></i></span>
+              </span>
+            </p>
+            <p class="counter">
+            <span class="count"><%= word.comments_count %> <i class="far fa-comment-dots"></i></span>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <div class="container text-center">
+    <%= link_to category_path(@categories.verb.first.slug), :class => "btn word btn-lg" do %>
+      <i class="fas fa-angle-double-right"></i>
+      Voir tous les mots (<%= @categories.word.first.words_count %>)
+      <i class="fas fa-angle-double-right"></i>
+    <% end %>
+  </div>
+</div>
+
+
+
+<div class="container-fluid">
+  <div class="container">
+    <h2 class="txt txt-adjective">Les derniers adjectifs :</h2>
+    <div class="row">
+    <% @words.adjective.take(4).each do |word| %>
+      <div class="col-xl">
+        <div class="card bg-adjective text-white mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= word.title %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <div class="container text-center">
+    <%= link_to category_path(@categories.adjective.first.slug), :class => "btn bg-adjective btn-lg" do %>
+      <i class="fas fa-angle-double-right"></i>
+      Voir tous les adjectifs (<%= @categories.adjective.first.words_count %>)
+      <i class="fas fa-angle-double-right"></i>
+    <% end %>
+  </div>
+</div>
+
+<div class="container-fluid bg-expression-ligth">
+  <div class="container">
+    <h2 class="txt txt-expression">Les dernières expressions :</h2>
+    <div class="row">
+    <% @words.expression.take(4).each do |word| %>
+      <div class="col-xl">
+        <div class="card bg-expression text-white mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= word.title %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <div class="container text-center">
+    <%= link_to category_path(@categories.expression.first.slug), :class => "btn bg-expression btn-lg" do %>
+      <i class="fas fa-angle-double-right"></i>
+      Voir toutes les expressions (<%= @categories.expression.first.words_count %>)
+      <i class="fas fa-angle-double-right"></i>
+    <% end %>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="container">
+    <h2 class="txt txt-adverb">Les derniers adverbes :</h2>
+    <div class="row">
+      <% @words.adverb.take(4).each do |word| %>
+        <div class="col-xl">
+          <div class="card bg-adverb text-white mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><%= word.title %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  <div class="container text-center">
+    <%= link_to category_path(@categories.adverb.first.slug), :class => "btn bg-adverb btn-lg" do %>
+      <i class="fas fa-angle-double-right"></i>
+      Voir tous les adverbes (<%= @categories.adverb.first.words_count %>)
+      <i class="fas fa-angle-double-right"></i>
+    <% end %>
+  </div>
+</div>
+
+<div class="container-fluid bg-name-ligth">
+  <div class="container">
+    <h2 class="txt txt-name">Les derniers prénoms :</h2>
+    <div class="row">
+    <% @words.prenom.take(4).each do |word| %>
+      <div class="col-xl">
+        <div class="card bg-name text-white mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= word.title %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <div class="container text-center">
+    <%= link_to category_path(@categories.prenom.first.slug), :class => "btn bg-name btn-lg" do %>
+      <i class="fas fa-angle-double-right"></i>
+      Voir tous les prénoms (<%= @categories.prenom.first.words_count %>)
+      <i class="fas fa-angle-double-right"></i>
+    <% end %>
+  </div>
+</div>

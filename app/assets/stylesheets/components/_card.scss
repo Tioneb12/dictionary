@@ -1,0 +1,60 @@
+.card-title {
+  width: 13rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.card-footer {
+  padding: 0.5rem 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.word {
+  background-color: $words;
+  &_txt {
+    color: $gray;
+  }
+  &_ligth {
+    color: $words;
+    background-color: $words-ligth;
+  }
+}
+.bg-verb {
+  background-color: $verbs-bg;
+}
+.bg-adverb {
+  background-color: $adverbs-bg;
+}
+.bg-adjective {
+  background-color: $adjectives-bg;
+  &-ligth {
+    background-color: #f9f0bd;
+  }
+}
+.bg-name {
+  background-color: $names-bg;
+  &-ligth {
+  background-color: $names-bg-ligth;
+  }
+}
+.bg-expression {
+  background-color: $expressions-bg;
+    &-ligth {
+    background-color: $expressions-bg-ligth;
+  }
+}
+
+
+
+
